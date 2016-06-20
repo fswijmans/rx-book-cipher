@@ -42,7 +42,7 @@ const allowedCharacters = character => '. '.indexOf(character) === -1;
 const observableElement = (element) => {
   return Rx.Observable.fromEvent(element, 'input')
     .map(valueFromEvent)
-    .debounce(150);
+    .startWith(element.value);
 };
 
 // inputs as observables: 
