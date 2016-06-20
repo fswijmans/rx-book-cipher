@@ -1,5 +1,5 @@
 // short hand for logging
-const log = (txt) => { console.log(txt); };
+const log = txt => console.log(txt);
 
 // some field accessors
 const secretInput = document.getElementById('secret');
@@ -8,7 +8,7 @@ const bookInput = document.getElementById('book');
 // getters/setters for en-/decode fields
 const getDecoded = () => {
   if (document.getElementById('decoded')) {
-    return document.getElementById('decoded').innerHTML; 
+    return document.getElementById('decoded').innerHTML;
   } else {
     return '';
   }
@@ -20,7 +20,7 @@ const setDecoded = (val) => {
 
 const getEncoded = () => {
   if (document.getElementById('encoded')) {
-    return document.getElementById('encoded').innerHTML; 
+    return document.getElementById('encoded').innerHTML;
   } else {
     return '';
   }
@@ -34,9 +34,9 @@ const setEncoded = (val) => {
 
 
 // helper functions
-const valueFromEvent = (event) => { return event.target.value };
+const valueFromEvent = event => event.target.value;
 
-const allowedCharacters = (character) => { return '. '.indexOf(character) === -1; };
+const allowedCharacters = character => '. '.indexOf(character) === -1;
 
 // element to observable
 const observableElement = (element) => {
@@ -49,13 +49,16 @@ const observableElement = (element) => {
 const secret$ = observableElement(secretInput);
 const book$ = observableElement(bookInput);
 
-
+const inputs$ = Rx.Observable.combineLatest(
+  observableElement(secretInput),
+  observableElement(bookInput)
+);
 
 
 
 // current encode/decode maps
-var encodeMap;
-var decodeMap;
+var encodeMap; // unnecesary!:O
+var decodeMap; // unnecesary!
 
 
 
@@ -199,5 +202,7 @@ var watchBook = function () {
   });
 })();
 
-
+// extra ideas:
 // do something with &nbsp; instead of spaces.
+// reduce all the things!
+// combineLatest van twee inputs -> scan om input strings per character te verwerken
