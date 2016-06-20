@@ -1,0 +1,52 @@
+<html>
+
+<head>
+  <title>
+    Functional book ciphering
+  </title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.css" />
+
+</head>
+
+<body style="padding: 20px;">
+
+  <h1>Book cipher</h1>
+
+  <h2>Functional programming example</h2>
+  <p>
+    A book cipher is a cipher in which the key is some aspect of a book or other piece of text; books being common and widely
+    available in modern times, users of book ciphers take the position that the details of the key are sufficiently well
+    hidden from attackers in practice. This is in some ways an example of security by obscurity. It is typically essential
+    that both correspondents not only have the same book, but the same edition.
+  </p>
+
+  <h2>Try it yourself!</h2>
+
+  <div>
+    <label for="secret"> Secret </label>
+    <input type="password" id="secret" value="abc" />
+  </div>
+
+  <div>
+    <label for="book"> Book </label>
+    <input type="text" id="book" value="The quick brown fox jumps over a lazy dog. Pack my box with five dozen liquor jugs."
+    />
+  </div>
+
+  <div>
+    <label for="encoded"> Encoded </label>
+    <div id="encoded"></div>
+  </div>
+
+  <div>
+    <label for="decoded"> Decoded</label>
+    <div id="decoded"></div>
+  </div>
+
+  <img src="reduceallthecode.jpg">
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/4.1.0/rx.all.js"></script>
+  <script type="text/javascript" src="cipher.js"></script>
+</body>
+
+</html>
